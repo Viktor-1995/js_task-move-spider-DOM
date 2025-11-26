@@ -16,8 +16,8 @@ document.addEventListener('click', (e) => {
   let targetLeft = clickX - spiderHalfW;
   let targetTop = clickY - spiderHalfH;
 
-  const maxLeft = wallRect.width - spiderRect.width - 20;
-  const maxTop = wallRect.height - spiderRect.height - 20;
+  const maxLeft = wall[0].clientWidth - spiderRect.width;
+  const maxTop = wall[0].clientHeight - spiderRect.height;
 
   targetLeft = Math.max(0, Math.min(targetLeft, maxLeft));
   targetTop = Math.max(0, Math.min(targetTop, maxTop));
