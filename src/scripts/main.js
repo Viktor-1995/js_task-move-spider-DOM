@@ -10,13 +10,19 @@ document.addEventListener('click', (e) => {
   const spiderHalfW = spiderRect.width / 2;
   const spiderHalfH = spiderRect.height / 2;
 
-  const clickX = e.clientX - wallRect.x;
-  const clickY = e.clientY - wallRect.y;
+  const clickX = e.clientX - wallRect.left;
+  const clickY = e.clientY - wallRect.top;
 
-  const targetLeft = clickX - spiderHalfW;
-  const targetTop = clickY - spiderHalfH;
+  let targetLeft = clickX - spiderHalfW;
+  let targetTop = clickY - spiderHalfH;
 
-  if (e.target.closest('div').className) {
+  const maxLeft = wallRect.width - spiderRect.width - 20;
+  const maxTop = wallRect.height - spiderRect.height - 20;
+
+  targetLeft = Math.max(0, Math.min(targetLeft, maxLeft));
+  targetTop = Math.max(0, Math.min(targetTop, maxTop));
+
+  if (e.target.closest('.wall')) {
     spider[0].style.left = targetLeft + 'px';
     spider[0].style.top = targetTop + 'px';
   }
