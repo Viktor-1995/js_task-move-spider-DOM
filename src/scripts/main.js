@@ -10,8 +10,8 @@ document.addEventListener('click', (e) => {
   const spiderHalfW = spiderRect.width / 2;
   const spiderHalfH = spiderRect.height / 2;
 
-  const clickX = e.clientX - wallRect.left;
-  const clickY = e.clientY - wallRect.top;
+  const clickX = e.clientX - wallRect.left - wall[0].clientLeft;
+  const clickY = e.clientY - wallRect.top - wall[0].clientTop;
 
   let targetLeft = clickX - spiderHalfW;
   let targetTop = clickY - spiderHalfH;
